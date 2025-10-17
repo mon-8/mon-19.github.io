@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>mon - examen (Ejercicio)</title>
+
+  <!-- FUENTES: puedes mantener estas líneas (requieren internet) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+  <!-- ========== CSS (arriba) ========== -->
+  <style>
+    /* ----------------- Variables básicas ----------------- */
+    :root{
+      --bg:#404C36; /* fondo crema */
+      --accent:#7E1836; /* color texto principal (mostaza/oliva) */
+      --muted:#ded3ba; /* color secundario */
+      --card-bg:#a48d5f;
+      --container-width:1100px;
+    }
+
+    /* ----------------- Reset sencillo ----------------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      padding:30px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    /* ----------------- Contenedor principal ----------------- */
+    .wrap{
+      width:100%;
+      max-width:var(--container-width);
+    }
+
+    /* ----------------- Header / Nav ----------------- */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:18px;
+      border-bottom:1px solid rgba(133,113,79,0.12);
+      padding-bottom:12px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo .mark{
+      width:36px;height:36px;border-radius:4px;
+      display:inline-grid;place-items:center;
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      color:var(--bg);
+      background:var(--accent);
+    }
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:20px;
+      font-size:0.95rem;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      letter-spacing:1px;
+    }
+    nav a:hover{color:var(--accent)}
+
+    /* ----------------- Hero (imagen floral + nombre) ----------------- */
+    .hero{
+      background: linear-gradient(#f7efe0,#f7efe0);
+      border-radius:6px;
+      overflow:hidden;
+      margin-top:18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .hero-visual{
+      /* aquí va la ilustración floral ancha */
+      background-color: #a48d5f;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      height:220px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      position:relative;
+    }
+
+    /* Texto grande centrado */
+    .hero-title{
+      position:absolute;
+      top:36%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      text-align:center;
+      font-family: "Playfair Display", serif;
+      color:var(--accent);
+    }
+    .hero-title h1{
+      font-size:48px;
+      letter-spacing:4px;
+      margin-bottom:6px;
+    }
+    .hero-title p{
+      font-size:14px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      margin-top:6px;
+    }
+
+    /* Separador debajo del hero */
+    .hero .divider{
+      height:16px;
+      background:linear-gradient(to top, rgba(0,0,0,0.02), transparent);
+    }
+
+    /* ----------------- Sección "My Work" ----------------- */
+    .section{
+      padding:28px 18px;
+      background:var(--bg);
+      text-align:center;
+    }
+    .section h2{
+      font-family:"Playfair Display", serif;
+      color:var(--accent);
+      letter-spacing:2px;
+      margin-bottom:12px;
+    }
+    .grid{
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      align-items:stretch;
+      margin:18px 0;
+      flex-wrap:nowrap;
+      overflow-x:auto; /* para que en móviles se desplace */
+      padding-bottom:6px;
+    }
+    .thumb{
+      min-width:220px;
+      max-width:240px;
+      background:var(--card-bg);
+      border-radius:6px;
+      padding:12px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.04);
+      text-align:center;
+    }
+    .thumb img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:4px;
+      display:block;
+      margin-bottom:10px;
+    }
+    .more-btn{
+      display:inline-block;
+      margin-top:6px;
+      padding:10px 18px;
+      border:1px solid rgba(133,113,79,0.15);
+      background:transparent;
+      color:var(--accent);
+      text-decoration:none;
+      font-size:0.95rem;
+      border-radius:4px;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* ----------------- Pie decorativo ----------------- */
+    footer{
+      margin-top:22px;
+      padding-top:22px;
+      border-top:1px solid rgba(133,113,79,0.08);
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    /* ----------------- Responsive ----------------- */
+    @media (max-width:880px){
+      .hero-visual{height:180px}
+      .hero-title h1{font-size:36px}
+      .thumb{min-width:170px}
+    }
+    @media (max-width:520px){
+      header{flex-direction:column;gap:10px;align-items:flex-start}
+      .hero-title h1{font-size:28px}
+      .hero-visual{height:150px}
+    }
+  </style>
+  <!-- ========== FIN CSS ========== -->
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ========== HEADER ========== -->
+    <header>
+      <div class="logo">
+        <div class="mark">CM</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--accent);font-size:1.05rem">Construcción del mensaje</div>
+          <div style="font-size:0.8rem;color:var(--muted)"></div>
+        </div>
+      </div>
+
+      <nav aria-label="Menú principal">
+        <ul>
+          <li><a href="#">Acerca</a></li>
+          <li><a href="#">tipos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================= HERO (imagen floral) ================= -->
+    <!-- IMPORTANTE: coloca la imagen grande del encabezado en la carpeta `images` 
+         y nómbrala: hero-floral.jpg
+         Ruta: ./images/hero-floral.jpg  (o cambia la ruta abajo si la guardas en otra carpeta)
+    -->
+    <section class="hero">
+      <div class="hero-visual" 
+           style="background-image:url('images/hero-floral.jpg');">
+
+        <!-- Si no tienes la imagen, se mostrará el fondo crema. -->
+        <div class="hero-floral" role="banner">
+          <h1>COMUNICACIÓN Y MENSAJE</h1>
+          
+        </div>
+      </div>
+      <div class="divider"></div>
+    </section>
+
+    <!-- ================= SECCIÓN "MY WORK" ================= -->
+    <section class="section" aria-labelledby="mywork">
+      <h2 id="mywork">Elementos clave de la comunicación</h2>
+
+      <div class="grid" role="list">
+        <!-- Coloca las miniaturas en la carpeta images:
+             <img src="Chamarra gris.jpeg" alt="work1.jpg
+             - work2.jpg
+             - work3.jpg
+             - work4.jpg
+             Ruta ejemplo: ./images/work1.jpg
+        -->
+        <div class="thumb" role="listitem">
+          <a href="EMISOR.HTML"> <img src="emisor.jpeg"></a>
+          <alt="Trabajo 1 - bosque">
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--accent)">EMISOR</div>
+        </div>
+
+        <div class="thumb" role="listitem">
+          <img src="receptor.jpeg" alt="Trabajo 2 - flores">
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--accent)">RECEPTOR</div>
+        </div>
+
+        <div class="thumb" role="listitem">
+          <img src="mensaje.jpeg" alt="Trabajo 3 - arboles">
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--accent)">MENSAJE</div>
+        </div>
+
+        <div class="thumb" role="listitem">
+          <img src="retroalimetacion.jpeg" alt="Trabajo 4 - paisaje">
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--accent)">RETROALIMENTACIÓN</div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <!-- ================= PIE ================= -->
+    <footer>
+      <div>© 2025 MJR · COMUNICACIÓN Y MENSAJE</div>
+    </footer>
+
+  </div>
