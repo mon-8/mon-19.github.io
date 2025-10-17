@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ceramics Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background-color: #1f1f1f;
+      color: #333;
+    }
+
+    header {
+      background-color: #f9f5f2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    header nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .section {
+      background-color: #f9f5f2;
+      padding: 3rem 2rem;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .product-card {
+      background-color: white;
+      width: 180px;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .product-card p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><strong>CLAY</strong></div>
+    <nav>
+      <a href="#">Shop</a>
+      <a href="#">Artists</a>
+      <a href="#">Journal</a>
+      <a href="#">Store</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>QUENTIN MARAIS</h1>
+    <p>Super proud to present a new and exciting collaboration</p>
+  </section>
+
+  <section class="section">
+    <h2>New in selection of Bowls</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1603808033190-9a2d3b2a4b1e?w=400" alt="Bowl">
+        <p>Unique Salad Bowl - €45</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1616627982957-4fcb3cbdeb18?w=400" alt="Bowl">
+        <p>Fruit Bowl - €29</p>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1609619385074-8dcf41aa78a4?w=400" alt="Bowl">
+        <p>Unique Bowl - €39</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Mugs</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1588854337236-6889d5b43c2b?w=400" alt="Mug">
+        <p>Handmade Mug - €25</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Vases</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1594007654729-408dd8d3f83e?w=400" alt="Vase">
+        <p>Modern Vase - €35</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ceramics Store | School Project
+  </footer>
+
+</body>
+</html>
